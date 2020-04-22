@@ -32,11 +32,12 @@ const getTodos = (todos, filter) => {
       return todos.filter((t) => !t.complete)
     case 'COMPLETE':
       return todos.filter((t) => t.complete)
+    default:
+      return filter
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.todos)
   return {
     todos: getTodos(state.todos,state.filter)
   }
